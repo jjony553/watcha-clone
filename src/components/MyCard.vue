@@ -1,6 +1,6 @@
+<!--Most Use Card in LibraryView and WatchedView -->
 <template>
   <div class="library">
-    <h3>담아둔 콘텐츠</h3>
     <div class="card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg" alt="">
         <span class="title">좋좋소</span>
@@ -19,9 +19,7 @@ export default {
 .library{
     margin-left: 40px;
     padding-bottom: 230px;
-    h3{
-        color:white;
-    }
+    
     .card{
         display: flex;
         flex-direction: column;

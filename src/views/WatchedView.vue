@@ -1,8 +1,10 @@
 <template>
   <div class="watched">
-    <div v-if="isWatchedData" class="watched-card"></div>
+    <h1>다 본 콘텐츠</h1>
+    <div v-if="isWatchedData" class="watched-card">
+      <MyCard />
+    </div>
     <div v-else class="empty">
-      <h1>다 본 콘텐츠</h1>
       <div class="divider"></div>
       <div class="info">
         <span class="material-symbols-outlined">
@@ -17,10 +19,12 @@
 <script>
 export default {
 setup(){
-  let isWatchedData = false
+  let isWatchedData = true
   return{
     isWatchedData
   }
+},
+components:{
 }
 }
 </script>
@@ -29,14 +33,14 @@ setup(){
 .watched{
     width: var(--main-width);
 
-  .empty{
-    display: flex;
-    flex-direction: column;
     h1{
       color: white;
       padding: 40px 0 0 35px;
-
     }
+  .empty{
+    display: flex;
+    flex-direction: column;
+    
     .divider{
       height: 1px;
       background: #1b1c1d;

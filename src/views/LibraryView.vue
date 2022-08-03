@@ -2,7 +2,8 @@
 <div class="library">
   <h1>보관함</h1>
   <div v-if="isLibraryData" class="library-card">
-    <LibraryCard />
+    <h3>담아둔 콘텐츠</h3>
+    <MyCard />
   </div>
   <div v-else class="empty">
     <div class="info">
@@ -17,16 +18,14 @@
 </template>
 
 <script>
-import LibraryCard from '../components/LibraryCard.vue'
 export default {
   setup(){
-    let isLibraryData = false
+    let isLibraryData = true;
     return{
       isLibraryData
     }
   },
   components:{
-    LibraryCard
   }
 }
 </script>
@@ -38,7 +37,12 @@ export default {
       color: white;
       padding: 40px 0 0 35px;
   }
-
+  .library-card{
+    h3{
+      margin-left: 40px;
+      color:white;
+    }
+  }
   .empty{
   display: flex;
   flex-direction: column;
