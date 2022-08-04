@@ -1,11 +1,14 @@
 <!--HomeView banner Card-->
 <template>
     <vue-horizontal class="vh">
+        
         <div class="main">
+            <router-link to="/staffmade">
             <span>스테디셀러</span>
             <h4>왓챠 최고 인기작</h4>
             <p>명량, 탑건 등 지금 가장 많이 보는 작품</p>
             <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MjVfMjM0/MDAxNTY0MDQ2MDQ3NTcx._vdB0BDM7mey_zYvinZI5Plq6Xkgi5-Dq7cGDIzSi48g.ViCflQ0lKJTvseNLuFP3jDw44LEny2WOGJUm2B0v6IYg.JPEG.chunilmkg/%EC%B2%9C%EC%9D%BC_%EB%B8%94%EB%A1%9C%EA%B7%B8_1.jpg?type=w800" alt="">
+        </router-link>
         </div>
         <div class="main">
             <span>베스트 셀렉션</span>

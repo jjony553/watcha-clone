@@ -1,11 +1,13 @@
 <!--Most Use Card in LibraryView and WatchedView -->
 <template>
-  <div class="library">
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg" alt="">
-        <span class="title">좋좋소</span>
-        <span class="type">TV 프로그램</span>
-    </div>
+  <div class="mycard">
+    <router-link to="/content">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg" alt="">
+            <span class="title">좋좋소</span>
+            <span class="type">TV 프로그램</span>
+        </div>
+    </router-link>
   </div>
 </template>
 
@@ -16,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.library{
+.mycard{
     margin-left: 40px;
     padding-bottom: 230px;
     
@@ -25,8 +27,8 @@ export default {
         flex-direction: column;
         justify-content: left;
         img{
-            width: 156px;
-            height: 230px;
+            width: 186px;
+            height: 275px;
             margin-bottom: 3px;
             border-radius: 5px;
         }

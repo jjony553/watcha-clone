@@ -30,10 +30,12 @@ body, html {
 body{
   background: black;
 }
-
 #app{
   --sidebar-width:220px;
   --main-width: calc(100% - var(--sidebar-width));
+  .v-hl-svg{
+      opacity: .4;
+  }
 }
 .view{
   width: 100%;
