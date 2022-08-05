@@ -39,10 +39,18 @@
       </div>
     </div>
     <ul class="social">
-        <li>facebook</li>
-        <li>twitter</li>
-        <li>instagram</li>
-        <li>blog</li>
+        <li>
+          <img src="../assets/footer/meta.svg" alt="">
+        </li>
+        <li>
+          <img src="../assets/footer/twitter.svg" alt="">
+        </li>
+        <li>
+          <img src="../assets/footer/instagram.svg" alt="">
+        </li>
+        <li>
+          <img src="../assets/footer/blog.svg" alt="">
+        </li>
     </ul>
   </div>
 </template>
@@ -58,6 +66,9 @@ export default {
   padding-left: var(--sidebar-width);
   background: black;
   color: white;
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 230px;
   .top-footer{
     display:flex;
     flex-direction: row;
@@ -162,9 +173,19 @@ export default {
     flex-direction: row;
     list-style: none;
     justify-content: end;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
     li{
       margin-right: 16px;
-      
+      img{
+        width: 25px;
+        height: 25px;
+        border: 1px solid white;
+        border-radius: 50%;
+        padding: 5px;
+      }
     }
   }
 }

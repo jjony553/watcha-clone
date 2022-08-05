@@ -6,6 +6,7 @@ import LibraryView from '../views/LibraryView.vue'
 import WatchedView from '../views/WatchedView.vue'
 import StaffMadeView from '../views/StaffMadeView.vue'
 import ContentView from '../views/ContentView.vue'
+import WatchView from '../views/WatchView.vue'
 
 const routes = [
   {
@@ -43,6 +44,12 @@ const routes = [
     name: 'content',
     component: ContentView
   },
+  {
+    path: '/watch',
+    name: 'watch',
+    component: WatchView,
+    meta: { layout: 'WatchLayout' },
+  }
 ]
 
 const router = createRouter({

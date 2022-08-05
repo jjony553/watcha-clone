@@ -19,7 +19,9 @@
     <div class="center">
         <div class="divider"></div>
             <div class="watch-collect">
-                <button>감상하기</button>
+                <router-link to="/watch">
+                    <button>감상하기</button>
+                </router-link>
                 <div class="collect">
                     <button>담아두기</button>
                     <span class="material-symbols-outlined">

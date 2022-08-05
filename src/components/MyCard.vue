@@ -20,8 +20,6 @@ export default {
 <style lang="scss" scoped>
 .mycard{
     margin-left: 40px;
-    padding-bottom: 230px;
-    
     .card{
         display: flex;
         flex-direction: column;

@@ -1,8 +1,20 @@
 <template> 
 <div class="header">
-    <router-link to="/" class="logo" >
-        <img src="../assets/logo.png" alt="logo">
-    </router-link>
+    <div class="logo-search">
+        <router-link to="/" class="logo" >
+            <img src="../assets/logo.png" alt="logo">
+        </router-link>
+        <form class="search">
+            <label>
+                <i class="material-symbols-outlined">
+                search
+                </i>
+                <input type="text" placeholder="콘텐츠,태그,인물,리스트 검색" v-model="input">
+                <button class="cancel" @click="deleteText">x</button>
+            </label>
+        </form>
+    </div>
+
     <div class="profile">
         <img class="profile-image" src="http://file.mk.co.kr/meet/neds/2021/09/image_readtop_2021_917933_16327070584796067.jpg" alt="" @click="openProfileMenu">
         <ProfileMenu v-if="isOpen" />
@@ -16,13 +28,20 @@ import ProfileMenu from './ProfileMenu.vue'
 export default {
 setup(){
     let isOpen = ref(false)
+    let input = ref("");
 
     function openProfileMenu(){
         isOpen.value = !isOpen.value
     }
+
+    function deleteText(){
+            input.value = ''
+    }
     return{
         isOpen,
-        openProfileMenu
+        openProfileMenu,
+        deleteText,
+        input
     }
 },
 components:{
@@ -39,21 +58,74 @@ components:{
     justify-content: space-between;
     background: #141517;
 
+    .logo-search{
+        display: flex;
+        flex-direction: row;
     .logo{
         padding: 8px;
         margin-left: 20px;
+        padding-right: 160px;
         img{
             width: 70px;
             height: 40px;
         }
     }
+    .search{
+        width: 337px;
+        margin-top: 10px;
+        label{
+            display: flex;
+            align-items: center;
+            background: rgb(34, 35, 38);
+            padding: 8px 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            i{
+                flex: 0 0 auto;
+                color: rgb(132, 134, 141);
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+            input{
+                flex: 1 0 auto;
+                background: transparent;
+                color: white;
+                padding: 0px;
+                border: 0px;
+                outline: none;
+                margin: 0px;
+                appearance: none;
+                caret-color: rgb(248, 47, 98);
+                font-size: 15px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                line-height: 20px;
+            }
+            .cancel{
+                flex: 0 0 auto;
+                color: black;
+                width: 20px;
+                height: 20px;
+                margin-left: 8px;
+                cursor: pointer;
+                border-radius: 50%;
+                font-size: 12px;
+                padding: 2px;
+                background: #6C6D74;
+                border: 1px solid transparent;
+            }
+        }
+
+    }
+    }
+
     .profile{
         display: inline-block;
         width: 32px;
         align-items: end;
         margin: 10px;
         padding: 0;
-
 
         .profile-image{
             width: 32px;

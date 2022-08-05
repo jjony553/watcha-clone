@@ -1,21 +1,23 @@
 <template>
-  <Header class="header"/>
-  <Nav class="nav"/>
-  <router-view class="view"/>
-  <Footer/>
+  <component :is="layout" >
+    <router-view class="view" v-model="layout"/>
+  </component>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Nav from './components/Nav.vue'
-import Footer from './components/Footer.vue'
+import { useRoute } from 'vue-router'
+import { computed  } from 'vue';
 export default {
-  setup() {
-    
-  },components:{
-    Header,
-    Nav,
-    Footer
+  name:'App',
+  setup(){
+    const route = useRoute()
+    const layout = computed(() => route.meta.layout || 'DefaultLayout' )
+
+      return {
+          layout
+      }
+  },
+  components:{
   }
 }
 </script>

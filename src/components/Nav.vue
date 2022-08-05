@@ -57,6 +57,7 @@ export default {
     left: 0;
     overflow-x: hidden;
     padding-top: 0;
+    z-index: 1000;
 
     .logo{
         img{
