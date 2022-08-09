@@ -14,8 +14,8 @@
             </ul>
             <p>혈귀로 변한 여동생 네즈코를 인간으로 되돌릴 단서를 찾아 비밀조직 귀살대에 들어간 탄지로. 임무 수행을 위해 최강 검사 염주 렌고쿠와 무한 열차에 탑승한 그는 숨어있던 식인 혈귀와 마주한다.</p>
         </div>
-
     </div>
+
     <div class="center">
         <div class="divider"></div>
             <div class="watch-collect">
@@ -32,12 +32,32 @@
         <div class="divider"></div>
     </div>
 
+    <div class="info">
+            <input type="radio" value="content-info" v-model="selected" id="content-info" />
+            <label for="content-info">콘텐츠 정보</label>
+            <input type="radio" value="related-content" v-model="selected" id="related-content" />
+            <label for="related-content">관련 콘텐츠</label>
+    </div>
+    <ContentInfo v-if="selected == 'content-info'" />
+    <RelatedContent v-else-if="selected == 'related-content'" />
 </div>
 </template>
 
 <script>
+import ContentInfo from '../components/content/ContentInfo.vue'
+import RelatedContent from '../components/content/RelatedContent.vue'
+import { ref } from 'vue'
 export default {
-
+setup () {
+    let selected  = ref("content-info")
+    return{
+        selected
+    }
+},
+components:{
+    ContentInfo,
+    RelatedContent
+}
 }
 </script>
 
@@ -163,6 +183,23 @@ export default {
                 }
             }
         }
+    }
+
+    .info{
+        display: flex;
+        justify-content: center;
+    input {
+        visibility:hidden;
+        
+    }
+    label {
+        cursor: pointer;
+        color: #4f5152;
+    }
+    input:checked + label {
+        color: white;
+        border-bottom: 2px solid white;
+    }
     }
 }
 </style>

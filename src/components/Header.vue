@@ -4,12 +4,12 @@
         <router-link to="/" class="logo" >
             <img src="../assets/logo.png" alt="logo">
         </router-link>
-        <form class="search">
+        <form class="search" v-if="isSearchView">
             <label>
                 <i class="material-symbols-outlined">
                 search
                 </i>
-                <input type="text" placeholder="콘텐츠,태그,인물,리스트 검색" v-model="input">
+                <input type="text" placeholder="콘텐츠,태그,인물,리스트 검색" v-model="isSearch">
                 <button class="cancel" @click="deleteText">x</button>
             </label>
         </form>
@@ -23,12 +23,34 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed, inject, toRef } from 'vue'
+import { useRoute } from 'vue-router'
 import ProfileMenu from './ProfileMenu.vue'
 export default {
+props:{
+},
+
 setup(){
     let isOpen = ref(false)
     let input = ref("");
+    let isSearchView = ref(false)
+
+    const emitter = inject('emitter')
+     emitter.on('isSearchView', (value) => {
+      isSearchView.value = value
+    });
+
+
+//     const isSearch = () => {
+//         emitter.emit('search', input)
+//     }
+
+// //nav에서 클리하고 올때
+//     if( path.value == "/search"){
+//         isSearchView = true
+//     }else{
+//         isSearchView = false
+//     }
 
     function openProfileMenu(){
         isOpen.value = !isOpen.value
@@ -41,7 +63,11 @@ setup(){
         isOpen,
         openProfileMenu,
         deleteText,
-        input
+        input,
+        isSearchView,
+        emitter
+        // route,
+        // path
     }
 },
 components:{
@@ -68,6 +94,7 @@ components:{
         img{
             width: 70px;
             height: 40px;
+            
         }
     }
     .search{
@@ -126,6 +153,7 @@ components:{
         align-items: end;
         margin: 10px;
         padding: 0;
+        cursor: pointer;
 
         .profile-image{
             width: 32px;

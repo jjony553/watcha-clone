@@ -1,6 +1,5 @@
 <template>
   <div class="watch">
-    <button @click="$router.go(-1)">X</button>
     <VideoPlayer/>
   </div>
 </template>
@@ -18,15 +17,12 @@ components:{
 
 <style lang="scss" scoped>
 .watch{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    button{
-        position: absolute;
-        font-size: 30px;
-        color:white;
-        cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0px;
+
 }
-}
+
 
 </style>

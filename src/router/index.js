@@ -7,6 +7,8 @@ import WatchedView from '../views/WatchedView.vue'
 import StaffMadeView from '../views/StaffMadeView.vue'
 import ContentView from '../views/ContentView.vue'
 import WatchView from '../views/WatchView.vue'
+import TagSuggestionsView from '../views/TagSuggestionsView'
+import PopularListView from '../views/PopularListView'
 
 const routes = [
   {
@@ -49,7 +51,17 @@ const routes = [
     name: 'watch',
     component: WatchView,
     meta: { layout: 'WatchLayout' },
-  }
+  },
+  {
+    path: '/tag_suggestions/:slug',
+    name: 'tag_suggestions',
+    component: TagSuggestionsView
+  },
+  {
+    path: '/popular_list',
+    name: 'popular_list',
+    component: PopularListView
+  },
 ]
 
 const router = createRouter({

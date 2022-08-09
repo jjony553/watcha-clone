@@ -19,7 +19,7 @@
 <script>
 export default {
 setup(){
-  let isWatchedData = true
+  let isWatchedData = false
   return{
     isWatchedData
   }
