@@ -85,15 +85,26 @@ components:{
                 border: 1px solid #1b1c1d;
                 background: transparent;
                 color: white;
-                padding: 5px 10px 5px 10px;
+                font-weight: 700;
+                font-size: 15px;
+                padding: 10px 10px 10px 10px;
             }
-
+            button:hover{
+                cursor: pointer;
+                background: black;
+                opacity: 50%;
+                }
             span{
                 font-size: 20px;
                 color: white;
                 border: 1px solid #1b1c1d;
-                padding: 5px 10px 5px 10px;
+                padding: 10px 10px 10px 10px;
             }
+            span:hover{
+                cursor: pointer;
+                background: black;
+                opacity: 50%;
+                }
         }
     }
 }

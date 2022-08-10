@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import VideoPlayer from '@/components/VideoPlayer.vue'
+import VideoPlayer from '@/components/watch/VideoPlayer.vue'
 export default {
 setup(){
 },

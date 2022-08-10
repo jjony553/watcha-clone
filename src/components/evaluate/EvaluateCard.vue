@@ -132,6 +132,7 @@ setup(){
         height: 340px;
         margin-right: 40px;
         border: 1px solid transparent;
+        border-radius: 3px;
     }
     img:hover{
         border: 1px solid #bdbdbd;

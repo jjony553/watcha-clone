@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EvaluateCard from '../components/EvaluateCard.vue'
+import EvaluateCard from '../components/evaluate/EvaluateCard.vue'
 export default {
 setup(){
 

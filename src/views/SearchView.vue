@@ -30,12 +30,13 @@
   </div>
     <BasicCard/>
 </div>
-
+<SearchResult v-else />
 </template>
 
 <script>
 import { ref, inject } from 'vue'
-import PopularCard from '../components/PopularCard.vue'
+import PopularCard from '../components/search/PopularCard.vue'
+import SearchResult from '../components/SearchResult/SearchResult.vue'
 export default {
 props:{
 },
@@ -43,10 +44,9 @@ setup(){
   let isSearch = ref(false)
   const emitter = inject('emitter');
 
-  emitter.on('search', (value) =>{
-    if(value !== null)
-    isSearch = value
-
+  emitter.on('isSearchText', (value) =>{
+    isSearch.value = value
+    console.log(isSearch.value)
   })
 
   return {
@@ -54,12 +54,18 @@ setup(){
   }
 },
 components:{
-  PopularCard
+  PopularCard,
+  SearchResult
 }
 }
 </script>
 
 <style lang="scss" scoped>
+.test{
+  width: 100px;
+  height: 500px;
+  background: white;
+}
 .search{
   width: var(--main-width);
     h3{
@@ -78,8 +84,5 @@ components:{
     padding: 40px 40px 0 35px;
     justify-content: space-between;
   }
-}
-.search-result{
-  background: white;
 }
 </style>

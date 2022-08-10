@@ -5,46 +5,40 @@
     <MainCard/>
 
     <div class="program">
-    <button @click="selectedButton = 'all'">전체</button>
-    <button @click="selectedButton = 'movie'">영화</button>
-    <button @click="selectedButton = 'tv'">TV 프로그램</button>
-
-    <div>
-      <AllProgram v-if="selected == 'all'"/>
+      <input type="radio" value="all" v-model="selected" id="all" />
+      <label for="all">전체</label>
+      <input type="radio" value="movie" v-model="selected" id="movie" />
+      <label for="movie">영화</label>
+      <input type="radio" value="tv" v-model="selected" id="tv" />
+      <label for="tv">TV 프로그램</label>
     </div>
-  </div>
+    <div>
+        <AllProgram v-if="selected == 'all'"/>
+        <MovieProgram v-else-if="selected == 'movie'"/>
+        <TvProgram v-else-if="selected == 'tv'"/>
+    </div>
 </div>
 </template>
 
 <script>
-import Footer from '../components/Footer.vue'
-import MainCard from '../components/MainCard.vue'
-import AllProgram from '../components/AllProgram.vue'
+import { ref } from 'vue'
+import MainCard from '../components/home/MainCard.vue'
+import AllProgram from '../components/home/AllProgram.vue'
+import MovieProgram from '../components/home/MovieProgram.vue'
+import TvProgram from '../components/home/TvProgram.vue'
 export default {
   name: 'HomeView',
   setup(){
-    let selected = 'all'
-
-    function selectedButton(){
-      if(selected == 'all'){
-        selected = 'all'
-      }else if(selected == 'movie'){
-        selected = 'movie'
-      }else {
-        selected = 'tv'
-      }
-      console.log(selected)
-    }
-      
+    let selected  = ref("all")
     return{
-      selected,
-      selectedButton
+        selected
     }
   },
   components: {
-    Footer,
     MainCard,
-    AllProgram
+    AllProgram,
+    MovieProgram,
+    TvProgram
 }
 }
 </script>
@@ -63,16 +57,29 @@ export default {
     }
 
     .program{
-      padding: 20px 0px 0 40px;
-      button{
-        margin-right: 8px;
-        color: #84868d;
-        font-size: 14px;
-        background: transparent;
-        border: 1px solid #84868d;;
-        border-radius: 15px;
-        padding: 8px 16px;
-        cursor: pointer;
+        display: flex;
+        padding: 10px 0 0 20px;
+      input {
+          visibility:hidden;
+          margin: 0;
+      }
+      label {
+          color: #84868d;
+          font-size: 14px;
+          background: transparent;
+          border: 2px solid #84868d;;
+          border-radius: 24px;
+          padding: 10px 16px;
+          font-weight: 600;
+          cursor: pointer;
+      }
+      input:checked + label {
+          color: black;
+          background: white;
+          font-size: 14px;
+          border-radius: 24px;
+          padding: 10px 16px;
+          font-weight: 600;
       }
     }
 }

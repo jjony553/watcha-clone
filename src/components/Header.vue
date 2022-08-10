@@ -9,7 +9,7 @@
                 <i class="material-symbols-outlined">
                 search
                 </i>
-                <input type="text" placeholder="콘텐츠,태그,인물,리스트 검색" v-model="isSearch">
+                <input type="text" placeholder="콘텐츠,태그,인물,리스트 검색" ref ="search" v-model="isSeachText" @change="isSearch">
                 <button class="cancel" @click="deleteText">x</button>
             </label>
         </form>
@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import { ref, computed, inject, toRef } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted , inject } from 'vue'
 import ProfileMenu from './ProfileMenu.vue'
 export default {
 props:{
@@ -32,25 +31,22 @@ props:{
 
 setup(){
     let isOpen = ref(false)
-    let input = ref("");
     let isSearchView = ref(false)
+    let isSeachText = ref("")
 
     const emitter = inject('emitter')
      emitter.on('isSearchView', (value) => {
       isSearchView.value = value
     });
 
-
-//     const isSearch = () => {
-//         emitter.emit('search', input)
-//     }
-
-// //nav에서 클리하고 올때
-//     if( path.value == "/search"){
-//         isSearchView = true
-//     }else{
-//         isSearchView = false
-//     }
+//If text in input then show search result
+    const isSearch = () => {
+        if(isSeachText == ""){
+            emitter.emit('isSearchText', false)
+        }else{
+            emitter.emit('isSearchText', true)
+        }
+    }
 
     function openProfileMenu(){
         isOpen.value = !isOpen.value
@@ -63,11 +59,10 @@ setup(){
         isOpen,
         openProfileMenu,
         deleteText,
-        input,
         isSearchView,
-        emitter
-        // route,
-        // path
+        emitter,
+        isSeachText,
+        isSearch,
     }
 },
 components:{

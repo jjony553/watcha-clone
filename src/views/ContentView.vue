@@ -159,7 +159,6 @@ components:{
                 font-weight: 700;
                 border-radius: 5px;
             }
-
             .collect{
                 display: flex;
                 flex-direction: row;
@@ -173,6 +172,12 @@ components:{
                     padding: 5px 10px 5px 10px;
                 }
 
+                button:hover{
+                cursor: pointer;
+                background: black;
+                opacity: 50%;
+                }
+
                 span{
                     font-size: 20px;
                     color: white;
@@ -180,6 +185,12 @@ components:{
                     padding: 5px 10px 5px 10px;
                     display: flex;
                     align-items: center;
+                }
+
+                span:hover{
+                cursor: pointer;
+                background: black;
+                opacity: 50%;
                 }
             }
         }
@@ -195,10 +206,15 @@ components:{
     label {
         cursor: pointer;
         color: #4f5152;
+        font-weight: 00;
+
     }
     input:checked + label {
         color: white;
+        padding-bottom: 15px;
         border-bottom: 2px solid white;
+        font-weight: 700;
+        
     }
     }
 }

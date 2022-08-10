@@ -60,6 +60,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 20px;
     img{
       width: 24px;
       height: 24px;
@@ -74,6 +75,7 @@ export default {
   .related-video{
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
     h2{
       font-size: 20px;
       color:white;
@@ -82,17 +84,16 @@ export default {
     img{
       width: 276px;
       height: 220px;
-      object-fit: cover;
-      margin: 0;
     }
     span{
       font-size: 15px;
       color: white;
+      margin: 0;
     }
   }
 
   .people{
-
+    padding-bottom: 20px;
     h2{
       font-size: 20px;
       color: white;
@@ -108,14 +109,17 @@ export default {
         margin-right: 15px;
       }
       .profile{
-
+        display: flex;
+        flex-direction: column;
         p{
           font-size: 16px;;
           color:white;
+          margin: 0 0 3px 0;
         }
         span{
           font-size: 13px;;
           color:#84868d;
+          margin: 0;
         }
       }
     }
@@ -129,6 +133,7 @@ export default {
       h2{
         font-size: 20px;
         color:white;
+        margin-right: 12px;
       }
       span{
         font-size: 15px;
@@ -144,16 +149,18 @@ export default {
         width: 38px;
         height: 38px;
         border-radius: 50%;
+        margin-right: 12px;
       }
       .profile{
-        
         .name{
-                  display: flex;
+        display: flex;
         flex-direction: row;
         align-items: center;
+        margin-bottom: 3px;
           p{
             font-size: 15px;
             color:white;
+            margin-right: 6px;
           }
           span{
             color: gold;
@@ -162,6 +169,7 @@ export default {
         p{
           font-size: 15px;;
           color:#84868d;
+          margin: 0;
         }
       }
     }
