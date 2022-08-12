@@ -13,6 +13,11 @@ Movie API from http://www.omdbapi.com/
 
 ```
 
+## Screen Shot
+#### Evaluate, Library, Watched Page
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/55618626/184413375-0e370e0d-348b-44df-b260-f344495f6ea7.gif)
+
+
 ## Folder Structure 
 ```
 │  App.vue
