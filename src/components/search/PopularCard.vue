@@ -31,13 +31,11 @@
 </template>
 
 <script>
-import VueHorizontal from "vue-horizontal";
 export default {
 setup(){
     
 },
 components:{
-  VueHorizontal
 }
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <div class="mycard">
+  <div class="watcha-movie">
         <router-link to="/content" class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg" alt=""
+            <img :src="item.image" alt=""
             @mouseover="isHover = true" @mouseout="isHover = false">
-            <span class="title">좋좋소</span>
-            <span class="type">TV 프로그램</span>
+            <span class="title">{{item.title}}</span>
+            <span class="type">{{item.type}}</span>
             <div v-show="isHover" @mouseover="isHover = true" @mouseout="isHover = false" class="detail">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg" alt=""
+                <img :src="item.image" alt=""
                 >
                 <div class="info">   
                     <div class="action">
@@ -21,11 +21,10 @@
                             </span>
                         </button>
                     </div>
-                    <span class="detail-title">좋좋소</span>
-                    <span class="detail-episode">에피소드 54개 시즌 1개</span>
-                    <span class="detail-tag">드라마 사무실</span>
+                    <span class="detail-title">{{item.title}}</span>
+                    <span class="detail-episode">{{item.episode}}</span>
+                    <span class="detail-tag">{{item.tag}}</span>
                 </div>
-
             </div>
         </router-link>
   </div>
@@ -34,27 +33,24 @@
 <script>
 import { ref } from 'vue'
 export default {
-props:{},
+props:{
+    item: Object
+},
 setup() {
     let isHover = ref(false)
 
     return{
         isHover,
     }
+},
+components:{
 }
 }
 </script>
 
 <style lang="scss" scoped>
-
-.mycard{
-    display: flex;
-    margin-left: 40px;
-    display: grid;
-    gap: 5px 5px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: auto auto auto auto;
-    list-style-type: none;
+.watcha-movie{
+    margin-right: 20px;
     .card{
         display: flex;
         flex-direction: column;

@@ -6,7 +6,11 @@
       <a>더보기</a>
     </router-link>
   </div>
-    <MyCard/>
+  <VueHorizontal class="vh">
+  <section v-for="item in items" :key="item">
+    <WatchaMovie :item="item"/>
+  </section>
+  </VueHorizontal>
   <div class="top">
     <h3>왓챠 TOP 10</h3>
   </div>
@@ -17,29 +21,41 @@
       <a>더보기</a>
     </router-link>
   </div>
-    <MyCard/>
+  <vue-horizontal class="vh">
+  <div v-for="item in items" :key="item" >
+    <WatchaMovie :item="item"/>
+  </div>
+  </vue-horizontal>
     <div class="popular">
     <h3>왓챠 최고 인기작</h3>
     <router-link to="/staffmade">
       <a>더보기</a>
     </router-link>
   </div>
-    <MyCard/>
+  <vue-horizontal v-for="item in items" :key="item">
+    <WatchaMovie :item="item"/>
+  </vue-horizontal>
 </div>
 </template>
 
 <script>
 import TopCard from './TopCard.vue'
+import WatchaMovie from './WatchaMovie.vue'
 export default {
+props:{
+  items: Array
+},
+setup(){
+},
 components:{
-    TopCard
+    TopCard,
+    WatchaMovie,
 }
 }
 </script>
 
 <style lang="scss" scoped>
 .all-program{
-  width: var(--main-width);
     h3{
       color:white;
     }
@@ -55,6 +71,10 @@ components:{
     flex-direction: row;
     padding: 20px 40px 0 35px;
     justify-content: space-between;
+  }
+  .vh{
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 </style>

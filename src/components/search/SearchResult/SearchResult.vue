@@ -15,7 +15,7 @@
     <div class="divider"></div>
 
     <SearchResultPopularVue v-if="selected == 'popular'"  />
-    <SearchResultMovieVue v-else-if="selected == 'movie'" />
+    <SearchResultMovieVue v-else-if="selected == 'movie'" :movies="movies"/>
     <SearchResultTvVue v-else-if="selected == 'tv'"/>
     <SearchResultPeopleVue v-else-if="selected == 'people'"/>
     <SearchResultListVue v-else-if="selected == 'list'"/>
@@ -24,18 +24,37 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import SearchResultPopularVue from './SearchResultPopular.vue'
 import SearchResultMovieVue from './SearchResultMovie.vue'
 import SearchResultTvVue from './SearchResultTv.vue'
 import SearchResultPeopleVue from './SearchResultPeople.vue'
 import SearchResultListVue from './SearchResultList.vue'
+import env from '@/env'
 
 export default {
-setup(){
+props:{
+    SearchText: String
+},
+setup(props,){
+    let searchText = props.SearchText
     let selected  = ref("popular")
+    const movies = ref([])
+
+    const getSearchMovies = () =>{
+        fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${searchText}`).then(response => response.json()).then(data => {
+           movies.value = data.Search
+        })
+    }
+
+    onBeforeMount(() => {
+        getSearchMovies()
+    })
     return{
-        selected
+        searchText,
+        selected,
+        movies,
+        getSearchMovies
     }
 },
 components:{

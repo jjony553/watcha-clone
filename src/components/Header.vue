@@ -17,7 +17,7 @@
 
     <div class="profile">
         <img class="profile-image" src="http://file.mk.co.kr/meet/neds/2021/09/image_readtop_2021_917933_16327070584796067.jpg" alt="" @click="openProfileMenu">
-        <ProfileMenu v-if="isOpen" />
+        <ProfileMenu v-if="isOpen"  @mouseleave="isOpen=false"/>
     </div>
 </div>
 </template>
@@ -45,6 +45,7 @@ setup(){
             emitter.emit('isSearchText', false)
         }else{
             emitter.emit('isSearchText', true)
+            emitter.emit('SearchText',isSeachText.value)
         }
     }
 
@@ -55,6 +56,7 @@ setup(){
     function deleteText(){
             input.value = ''
     }
+
     return{
         isOpen,
         openProfileMenu,

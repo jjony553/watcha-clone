@@ -44,21 +44,19 @@
 </template>
 
 <script>
-import VueHorizontal from "vue-horizontal";
 export default {
 setup(){
     
 },
 components:{
-  VueHorizontal
 }
 }
 
 </script>
 <style lang="scss" scoped>
 .vh{
-    margin-left: 40px;
-    margin-right: 40px;
+    // margin-left: 40px;
+    // margin-right: 40px;
   
     .card{
     position: relative;

@@ -13,7 +13,7 @@
       <label for="tv">TV 프로그램</label>
     </div>
     <div>
-        <AllProgram v-if="selected == 'all'"/>
+        <AllProgram v-if="selected == 'all'" :items="items"/>
         <MovieProgram v-else-if="selected == 'movie'"/>
         <TvProgram v-else-if="selected == 'tv'"/>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted} from 'vue'
 import MainCard from '../components/home/MainCard.vue'
 import AllProgram from '../components/home/AllProgram.vue'
 import MovieProgram from '../components/home/MovieProgram.vue'
@@ -30,8 +30,22 @@ export default {
   name: 'HomeView',
   setup(){
     let selected  = ref("all")
+    let items= ref([])
+
+  onMounted( async () => {
+    items.value = await fetchItems()
+  })
+
+  async function fetchItems(){
+        const res = await fetch(`https://62f01d0b57311485d12d76cd.mockapi.io/item`)
+        const data = await res.json()
+        return data
+  }
     return{
-        selected
+        selected,
+        items,
+        fetchItems
+
     }
   },
   components: {
