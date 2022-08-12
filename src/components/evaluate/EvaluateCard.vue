@@ -35,7 +35,7 @@ export default {
 props:{
     movies: Array
 },
-setup(props){
+setup(){
     let isEvaluate = ref(false)
     let isActive = ref('')
 

@@ -1,7 +1,7 @@
 <template>
   <div class="search-result-movie" >
-    <div v-for="movie in movies" :key="movie">
-      <img :src="`${movie.Poster}`" alt="">
+    <div v-for="searchList in searchList" :key="searchList">
+      <img :src="`${searchList.Poster}`" alt="">
     </div>
   </div>
 </template>
@@ -10,14 +10,8 @@
 
 export default {
 props:{
-  movies: Array
+  searchList: Array
 },
-setup(props){
-    let movies = props.movies
-  return {
-    movies
-  }
-}
 }
 </script>
 

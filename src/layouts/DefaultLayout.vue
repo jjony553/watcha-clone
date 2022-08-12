@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import Header from '../components/Header.vue'
 import Nav from '../components/Nav.vue'
 import Footer from '../components/Footer.vue'
@@ -19,10 +18,6 @@ export default {
         Header,
         Nav,
         Footer
-    },
-    setup () {
-        return{
-        }
     }
 }
 </script>

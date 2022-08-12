@@ -15,7 +15,7 @@
     <div class="divider"></div>
 
     <SearchResultPopularVue v-if="selected == 'popular'"  />
-    <SearchResultMovieVue v-else-if="selected == 'movie'" :movies="movies"/>
+    <SearchResultMovieVue v-else-if="selected == 'movie'" :searchList="searchList"/>
     <SearchResultTvVue v-else-if="selected == 'tv'"/>
     <SearchResultPeopleVue v-else-if="selected == 'people'"/>
     <SearchResultListVue v-else-if="selected == 'list'"/>
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import { ref, onBeforeMount } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import SearchResultPopularVue from './SearchResultPopular.vue'
 import SearchResultMovieVue from './SearchResultMovie.vue'
 import SearchResultTvVue from './SearchResultTv.vue'
 import SearchResultPeopleVue from './SearchResultPeople.vue'
 import SearchResultListVue from './SearchResultList.vue'
-import env from '@/env'
+import { useMovieStore } from '@/stores/movie'
 
 export default {
 props:{
@@ -39,22 +39,20 @@ props:{
 setup(props,){
     let searchText = props.SearchText
     let selected  = ref("popular")
-    const movies = ref([])
 
-    const getSearchMovies = () =>{
-        fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${searchText}`).then(response => response.json()).then(data => {
-           movies.value = data.Search
-        })
-    }
+     const movieStore = useMovieStore()
 
-    onBeforeMount(() => {
-        getSearchMovies()
+    const searchList = computed(() =>{
+        return movieStore.searchList
     })
+        onMounted( async () => {
+        movieStore.fetchMovieSearch(searchText)
+    })
+
     return{
         searchText,
         selected,
-        movies,
-        getSearchMovies
+        searchList,
     }
 },
 components:{
@@ -72,7 +70,7 @@ components:{
     .top{
         display: flex;
         justify-content: start;
-    padding: 14px 0 0 20px;
+        padding: 14px 0 0 20px;
 
         input {
             visibility:hidden;

@@ -6,12 +6,14 @@ import BasicCardComponent from'./components/search/BasicCard.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
 import WatchLayout from './layouts/WatchLayout.vue'
 import VueHorizontal from "vue-horizontal";
+import { createPinia } from 'pinia'
 
 import mitt from 'mitt'
 const emitter = mitt()
 
 
 createApp(App)
+.use(createPinia())
 .use(router)
 .component('MyCard',MyCardComponent)
 .component('BasicCard',BasicCardComponent)

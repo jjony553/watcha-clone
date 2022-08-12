@@ -74,7 +74,6 @@ components:{
         border-radius: 5px;
         margin-right: 50px;
         padding: 120px 0px 0px 40px;
-
         }
         .title{
             display: flex;
@@ -214,7 +213,6 @@ components:{
         padding-bottom: 15px;
         border-bottom: 2px solid white;
         font-weight: 700;
-        
     }
     }
 }

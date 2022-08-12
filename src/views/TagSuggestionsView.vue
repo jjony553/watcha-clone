@@ -56,14 +56,14 @@ setup () {
     let title = ref("")
 
     if(slug == "genres"){
-        title = "추천 장르"
+        title.value = "추천 장르"
     }else if(slug == "tags"){
-        title = "추천 태그"
+        title.value = "추천 태그"
     }
     else if(slug == "nations"){
-        title = "국가"
+        title.value = "국가"
     }
-    return {
+    return{
         title
     }
 }

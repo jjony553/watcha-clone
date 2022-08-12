@@ -6,10 +6,10 @@
       <a>더보기</a>
     </router-link>
   </div>
-  <VueHorizontal class="vh">
-  <section v-for="item in items" :key="item">
+  <VueHorizontal class="vh" v-if="items.length > 0">
+  <div v-for="item in items" :key="item">
     <WatchaMovie :item="item"/>
-  </section>
+  </div>
   </VueHorizontal>
   <div class="top">
     <h3>왓챠 TOP 10</h3>
@@ -21,20 +21,22 @@
       <a>더보기</a>
     </router-link>
   </div>
-  <vue-horizontal class="vh">
-  <div v-for="item in items" :key="item" >
+  <VueHorizontal class="vh" v-if="items.length > 0">
+  <div v-for="item in items" :key="item">
     <WatchaMovie :item="item"/>
   </div>
-  </vue-horizontal>
+  </VueHorizontal>
     <div class="popular">
     <h3>왓챠 최고 인기작</h3>
     <router-link to="/staffmade">
       <a>더보기</a>
     </router-link>
   </div>
-  <vue-horizontal v-for="item in items" :key="item">
+  <VueHorizontal class="vh" v-if="items.length > 0">
+  <div v-for="item in items" :key="item">
     <WatchaMovie :item="item"/>
-  </vue-horizontal>
+  </div>
+  </VueHorizontal>
 </div>
 </template>
 
@@ -46,6 +48,7 @@ props:{
   items: Array
 },
 setup(){
+
 },
 components:{
     TopCard,

@@ -1,6 +1,6 @@
 <!--HomeView banner Card-->
 <template>
-    <vue-horizontal class="vh">
+    <VueHorizontal class="vh">
         <router-link to="/staffmade" class="main">
             <span>스테디셀러</span>
             <h4>왓챠 최고 인기작</h4>
@@ -38,17 +38,15 @@
             <p>'파친코'코고나다 감독의 눈부시게 아름다운 SF</p>
             <img src="https://image.imnews.imbc.com/news/2017/culture/article/__icsFiles/afieldfile/2017/11/11/20.jpg" alt="">
         </router-link>
-    </vue-horizontal>
+    </VueHorizontal>
 </template>
 
 <script>
-import VueHorizontal from "vue-horizontal";
 export default {
 setup(){
     
 },
 components:{
-  VueHorizontal
 }
 }
 </script>

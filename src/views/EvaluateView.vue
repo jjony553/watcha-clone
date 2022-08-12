@@ -5,26 +5,25 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import EvaluateCard from '../components/evaluate/EvaluateCard.vue'
-import env from '@/env'
+import { useMovieStore } from '@/stores/movie'
 export default {
 setup(){
-  let movies = ref([])
 
-  onMounted( async () => {
-    movies.value = await fetchMovies()
+  const movieStore = useMovieStore()
+
+  const movies = computed(() =>{
+    return movieStore.movie
   })
 
-  async function fetchMovies(){
-        const res = await fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=hot}`)
-        const data = await res.json()
-        return data.Search
-  }
+  onMounted( async () => {
+    movieStore.fetchMovies()
+  })
 
   return{
-    movies,
-    fetchMovies
+    movieStore,
+    movies
   }
 },
 components:{

@@ -11,21 +11,21 @@
   <div class="genre">
     <h3>추천 장르</h3>
        <router-link to="tag_suggestions/genres">
-    <a :title="title">모두 보기</a>
+    <a >모두 보기</a>
     </router-link>
   </div>
     <BasicCard/>
     <div class="tag">
     <h3>추천 태그</h3>
         <router-link to="tag_suggestions/tags">
-    <a :title="title">모두 보기</a>
+    <a >모두 보기</a>
     </router-link>
   </div>
     <BasicCard/>
     <div class="nation">
     <h3>국가</h3>
         <router-link to="tag_suggestions/nations">
-    <a :title="title">모두 보기</a>
+    <a >모두 보기</a>
     </router-link>
   </div>
     <BasicCard/>
@@ -34,13 +34,14 @@
 </template>
 
 <script>
-import { ref, inject } from 'vue'
+import { ref, inject, onMounted } from 'vue'
 import PopularCard from '../components/search/PopularCard.vue'
 import SearchResult from '../components/search/SearchResult/SearchResult.vue'
 export default {
 setup(){
   let isSearch = ref(false)
   let SearchText = ref('')
+
   const emitter = inject('emitter');
 
   emitter.on('isSearchText', (value) =>{
@@ -52,9 +53,11 @@ setup(){
 
   })
 
+
+
   return {
     isSearch,
-    SearchText
+    SearchText,
   }
 },
 components:{

@@ -1,43 +1,43 @@
 <template>
   <vue-horizontal class="vh">
     <div class="card">
-        <p>type</p>
+        <p>SF</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>판타지</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>한국 드라마</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>로맨틱 코미디</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>전기</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
     <div class="card">
-        <p>type</p>
+        <p>강렬한, 스릴러</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>사랑, 짝사랑</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>미국, 춤</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>아일랜드</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
      <div class="card">
-        <p>type</p>
+        <p>덴마크</p>
         <img src="https://thumbs.dreamstime.com/b/purple-black-checkered-flag-racing-background-texture-d-illustration-banner-extreme-widescreen-ratio-173954326.jpg" alt="">
     </div>
   </vue-horizontal>
@@ -55,8 +55,8 @@ components:{
 </script>
 <style lang="scss" scoped>
 .vh{
-    // margin-left: 40px;
-    // margin-right: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
   
     .card{
     position: relative;

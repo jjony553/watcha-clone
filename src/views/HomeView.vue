@@ -21,30 +21,30 @@
 </template>
 
 <script>
-import { ref, onMounted} from 'vue'
+import { ref, onMounted, computed} from 'vue'
 import MainCard from '../components/home/MainCard.vue'
 import AllProgram from '../components/home/AllProgram.vue'
 import MovieProgram from '../components/home/MovieProgram.vue'
 import TvProgram from '../components/home/TvProgram.vue'
+import { useHomeStore } from '@/stores/home'
 export default {
   name: 'HomeView',
   setup(){
     let selected  = ref("all")
-    let items= ref([])
 
-  onMounted( async () => {
-    items.value = await fetchItems()
-  })
+    const homeStore = useHomeStore()
 
-  async function fetchItems(){
-        const res = await fetch(`https://62f01d0b57311485d12d76cd.mockapi.io/item`)
-        const data = await res.json()
-        return data
-  }
+    const items = computed(()=>{
+      return homeStore.items
+    }) 
+
+    onMounted( async () => {
+      homeStore.fetchItems()
+    })
+    
     return{
         selected,
-        items,
-        fetchItems
+        items
 
     }
   },

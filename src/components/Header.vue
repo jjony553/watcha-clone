@@ -26,9 +26,6 @@
 import { ref, onMounted , inject } from 'vue'
 import ProfileMenu from './ProfileMenu.vue'
 export default {
-props:{
-},
-
 setup(){
     let isOpen = ref(false)
     let isSearchView = ref(false)
