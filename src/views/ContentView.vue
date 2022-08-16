@@ -157,6 +157,10 @@ components:{
                 font-size: 15px;
                 font-weight: 700;
                 border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover{
+                opacity: 50%;
             }
             .collect{
                 display: flex;
@@ -173,7 +177,6 @@ components:{
 
                 button:hover{
                 cursor: pointer;
-                background: black;
                 opacity: 50%;
                 }
 
@@ -188,7 +191,6 @@ components:{
 
                 span:hover{
                 cursor: pointer;
-                background: black;
                 opacity: 50%;
                 }
             }

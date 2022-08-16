@@ -44,7 +44,8 @@ const routes = [
   {
     path: '/content',
     name: 'content',
-    component: ContentView
+    component: ContentView,
+    props: true
   },
   {
     path: '/watch',

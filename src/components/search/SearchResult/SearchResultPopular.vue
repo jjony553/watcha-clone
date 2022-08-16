@@ -1,10 +1,10 @@
 <template>
   <div class="search-result-popular">
-    <div class="list">
-      <img src="https://post-phinf.pstatic.net/MjAxOTEyMDRfOSAg/MDAxNTc1NDI1MTg2MDE2.b1S1g-yhSiy6hxFJOoMsO7-PlMTc2iWAdznJ2xZwTxQg.3kTCo5pOPX6G3wtYR1AAYeGetDTkOXO2xTCM0SU4bNcg.JPEG/253-%EC%95%84%EC%9D%B4%EC%9C%A04.jpg?type=w1200" alt="">
+    <div class="list" v-for="searchList in searchList" :key="searchList">
+      <img :src="searchList.Poster" alt="">
       <div>
-        <p class="title">김복남 살인사건의 전말</p>
-        <p class="info">영화 · 장철수 · 2010</p>
+        <p class="title">{{searchList.Title}}</p>
+        <p class="info">{{searchList.Year}}, {{searchList.Type}}</p>
       </div>
     </div>
 
@@ -13,7 +13,9 @@
 
 <script>
 export default {
-
+props:{
+  searchList: Array
+},
 }
 </script>
 
@@ -23,11 +25,16 @@ export default {
   .list{
     display: flex;
     flex-direction: row;
+    margin-bottom: 16px;
     img{
       width: 48px;
       height: 70px;
       margin-right: 12px;
       border-radius: 5px;
+    }
+    img:hover{
+      opacity: 50%;
+      cursor: pointer;
     }
     div{
       display: flex;

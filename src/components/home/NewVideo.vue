@@ -1,10 +1,10 @@
 <template>
-  <div class="watcha-movie">
+  <div class="new-video">
         <router-link to="/content" class="card">
-            <img :src="item.image" alt=""
+            <img :src="newVideo.image" alt=""
             @mouseover="isHover = true" @mouseout="isHover = false">
             <div v-show="isHover" @mouseover="isHover = true" @mouseout="isHover = false" class="detail">
-                <img :src="item.image" alt=""
+                <img :src="newVideo.image" alt=""
                 >
                 <div class="info">   
                     <div class="action">
@@ -19,9 +19,9 @@
                             </span>
                         </button>
                     </div>
-                    <span class="detail-title">{{item.title}}</span>
-                    <span class="detail-episode">{{item.episode}}</span>
-                    <span class="detail-tag">{{item.tag}}</span>
+                    <span class="detail-title">{{newVideo.title}}</span>
+                    <span class="detail-episode">{{newVideo.episode}}</span>
+                    <span class="detail-tag">{{newVideo.tag}}</span>
                 </div>
             </div>
         </router-link>
@@ -32,7 +32,7 @@
 import { ref } from 'vue'
 export default {
 props:{
-    item: Object
+    newVideo: Object
 },
 setup() {
     let isHover = ref(false)
@@ -47,7 +47,7 @@ components:{
 </script>
 
 <style lang="scss" scoped>
-.watcha-movie{
+.new-video{
     margin-right: 20px;
     .card{
         display: flex;

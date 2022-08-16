@@ -1,7 +1,7 @@
 <template>
   <div class="search-result-movie" >
     <div v-for="searchList in searchList" :key="searchList">
-      <img :src="`${searchList.Poster}`" alt="">
+      <img :src="searchList.Poster" alt="">
     </div>
   </div>
 </template>
@@ -31,8 +31,8 @@ props:{
     margin-top: 10px;
   }
   img:hover{
-    background: black;
     opacity: 50%;
+    cursor: pointer;
   }
   }
 }

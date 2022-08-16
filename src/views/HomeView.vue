@@ -13,9 +13,9 @@
       <label for="tv">TV 프로그램</label>
     </div>
     <div>
-        <AllProgram v-if="selected == 'all'" :items="items"/>
-        <MovieProgram v-else-if="selected == 'movie'"/>
-        <TvProgram v-else-if="selected == 'tv'"/>
+        <AllProgram v-if="selected == 'all'" :items="items" :newVideos="newVideos"/>
+        <MovieProgram v-else-if="selected == 'movie'" :items="items" :newVideos="newVideos"/>
+        <TvProgram v-else-if="selected == 'tv'" :items="items" :newVideos="newVideos"/>
     </div>
 </div>
 </template>
@@ -38,13 +38,19 @@ export default {
       return homeStore.items
     }) 
 
+    const newVideos = computed(() =>{
+      return homeStore.newVideos
+    })
+
     onMounted( async () => {
       homeStore.fetchItems()
+      homeStore.fetchNewVideos()
     })
     
     return{
         selected,
-        items
+        items,
+        newVideos
 
     }
   },

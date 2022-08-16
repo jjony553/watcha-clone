@@ -14,7 +14,7 @@
     </div>
     <div class="divider"></div>
 
-    <SearchResultPopularVue v-if="selected == 'popular'"  />
+    <SearchResultPopularVue v-if="selected == 'popular'"  :searchList="searchList"/>
     <SearchResultMovieVue v-else-if="selected == 'movie'" :searchList="searchList"/>
     <SearchResultTvVue v-else-if="selected == 'tv'"/>
     <SearchResultPeopleVue v-else-if="selected == 'people'"/>
@@ -45,6 +45,7 @@ setup(props,){
     const searchList = computed(() =>{
         return movieStore.searchList
     })
+
         onMounted( async () => {
         movieStore.fetchMovieSearch(searchText)
     })
