@@ -4,23 +4,33 @@
 ## Used
 - Skills
 ```
-Vue3, Cli, Composition API
+Vue3, Cli, Composition API, Pinia
 ```
 - API
 ```
 User API from https://mockapi.io/
 Movie API from http://www.omdbapi.com/
+```
+- Font, Library
+```
+Font from https://fonts.google.com/icons
 
+Library
+- vue-horizontal from https://github.com/fuxingloh/vue-horizontal
 ```
 
 ## Screen Shot
+#### Search
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/55618626/184459657-0f8e607d-19d9-4583-88e5-49c8d1510d9b.gif)
+
 #### Evaluate, Library, Watched Page
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55618626/184413375-0e370e0d-348b-44df-b260-f344495f6ea7.gif)
 
 
 ## Folder Structure 
 ```
-│  App.vue
+  App.vue
+│  env.js
 │  main.js
 │
 ├─api
@@ -53,6 +63,7 @@ Movie API from http://www.omdbapi.com/
 │  │      MovieProgram.vue
 │  │      TopCard.vue
 │  │      TvProgram.vue
+│  │      WatchaMovie.vue
 │  │
 │  ├─search
 │  │  │  BasicCard.vue
@@ -75,6 +86,11 @@ Movie API from http://www.omdbapi.com/
 │
 ├─router
 │      index.js
+│
+├─stores
+│      home.js
+│      movie.js
+│      search.js
 │
 └─views
         ContentView.vue
