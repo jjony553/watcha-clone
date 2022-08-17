@@ -20,6 +20,9 @@ Library
 ```
 
 ## Screen Shot
+#### Home
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/55618626/185027133-78431047-73d2-4ee1-b44f-0301182b8f41.gif)
+
 #### Search
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55618626/184459657-0f8e607d-19d9-4583-88e5-49c8d1510d9b.gif)
 
